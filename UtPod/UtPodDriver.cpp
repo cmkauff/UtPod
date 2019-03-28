@@ -7,7 +7,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    UtPod t;
+    UtPod t(100);
 
     Song s1("Beatles", "Hey Jude1", 4);
     int result = t.addSong(s1);
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
 
-    result = t.removeSong(s3);
+    result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
 
     t.showSongList();

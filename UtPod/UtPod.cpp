@@ -14,7 +14,15 @@ UtPod::UtPod() {
 
 UtPod::UtPod(int size) {
     songs = NULL;
-    podMemSize = size;
+    if(size > MAX_MEMORY){
+        size = MAX_MEMORY;
+    }
+    else if(size< 0) {
+        size = 0;
+    }
+    else {
+        podMemSize = size;
+    }
 }
 
 int UtPod::addSong(Song const &s){
