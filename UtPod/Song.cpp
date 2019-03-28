@@ -51,3 +51,47 @@ void Song::swap(Song &s2){
     s2 = *this;
     *this = temp;
 }
+
+bool Song::operator >(Song const &rhs){
+    if (artist > rhs.artist){
+        return true;
+    }
+    if (artist == rhs.artist){
+        if(title > rhs.title) {
+            return true;
+        }
+        if ((title == rhs.title) && (size > rhs.size)){
+            return true;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
+bool Song::operator <(Song const &rhs){
+    if (artist < rhs.artist){
+        return true;
+    }
+    if (artist == rhs.artist){
+        if(title < rhs.title) {
+            return true;
+        }
+        if ((title == rhs.title) && (size < rhs.size)){
+            return true;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
+bool Song::operator ==(Song const &rhs){
+
+    return(artist == rhs.artist &&
+    title == rhs.title &&
+    size == rhs.size);
+
+}

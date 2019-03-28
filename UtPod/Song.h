@@ -33,7 +33,15 @@ public:
 
     void setSize(int s);
 
-};
+    void swap(Song &s2);
+
+    bool operator >(Song const &rhs);
+
+    bool operator <(Song const &rhs);
+
+    bool operator ==(Song const &rhs)
+
+    };
 
 
 
