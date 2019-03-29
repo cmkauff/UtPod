@@ -1,6 +1,5 @@
 
 
-//asfsdfasdf
 #include <iostream>
 #include "Song.h"
 #include "UtPod.h"
@@ -52,11 +51,11 @@ void Song::swap(Song &s2){
 }
 
 bool Song::operator >(Song const &rhs){
-    if (artist > rhs.artist){
+    if (artist < rhs.artist){
         return true;
     }
     if (artist == rhs.artist){
-        if(title > rhs.title) {
+        if(title < rhs.title) {
             return true;
         }
         if ((title == rhs.title) && (size > rhs.size)){
@@ -70,11 +69,11 @@ bool Song::operator >(Song const &rhs){
 }
 
 bool Song::operator <(Song const &rhs){
-    if (artist < rhs.artist){
+    if (artist > rhs.artist){
         return true;
     }
     if (artist == rhs.artist){
-        if(title < rhs.title) {
+        if(title > rhs.title) {
             return true;
         }
         if ((title == rhs.title) && (size < rhs.size)){

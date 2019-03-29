@@ -60,7 +60,9 @@ int UtPod::removeSong(Song const &s){
     return -1;
 }
 
-void UtPod::shuffle(){}
+void UtPod::shuffle(){
+
+}
 
 void UtPod::showSongList(){
     SongNode *p1 = songs;
@@ -70,8 +72,23 @@ void UtPod::showSongList(){
     }
 }
 
-void UtPod::sortSongList(){
-    int count = 0;
+void UtPod::sortSongList() {
+    if (songs != NULL) {
+        SongNode *p1 = songs;
+        SongNode *p2;
+        while(p1->next != NULL) {
+            p2 = p1->next;
+            while (p2 != NULL) {
+                if(p2->s > p1->s){
+                    p1->s.swap(p2->s);
+                }
+                else {
+                    p2 = p2->next;
+                }
+            }
+            p1 = p1->next;
+        }
+    }
 
 }
 
