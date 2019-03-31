@@ -33,6 +33,13 @@ int main(int argc, char *argv[]) {
     result = t.addSong(s5);
     cout << "add result = " << result << endl;
 
+    Song s6("Featles", "Hey Jude6", 6);
+    result = t.addSong(s6);
+    cout << "add result = " << result << endl;
+
+    Song s7("Geatles", "Hey Jude5", 8);
+    result = t.addSong(s7);
+    cout << "add result = " << result << endl;
     t.showSongList();
     cout << "-----------" << endl;
 /*
@@ -65,6 +72,9 @@ int main(int argc, char *argv[]) {
     if(s1>s2){
         cout << "works" << endl;
     }
+    t.shuffle();
+    t.showSongList();
+    cout << "-----------" << endl;
     t.sortSongList();
     t.showSongList();
 
