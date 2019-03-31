@@ -60,8 +60,64 @@ int UtPod::removeSong(Song const &s){
     return -1;
 }
 
-void UtPod::shuffle(){}
+void UtPod::shuffle(){
 
+    if (songs != nullptr) {
+        SongNode *p1 = songs;                               //count number of nodes
+        int nodeCount = 0;
+        while (p1 != nullptr){
+            p1 = p1->next;
+            nodeCount ++;
+        }
+        srand((unsigned int) time(nullptr));
+        SongNode *p2 = songs;
+        SongNode *prev1 = nullptr;
+        SongNode *swap1 = nullptr;
+        SongNode *p3 = songs;
+        SongNode *prev2 = nullptr;
+        SongNode *swap2 = nullptr;
+        for (int i = 0; i < nodeCount; i++) {
+            while (p2 != nullptr) {                         //generate random number to select a node
+                if ((rand() % nodeCount) == 0) {
+                    swap1 = p2;
+                    p2 = nullptr;
+                }else {
+                    prev1 = p2;
+                    p2 = p2->next;
+                }
+            }
+            while (p3 != nullptr) {                         //generate random number to select a second node
+                if ((rand() % nodeCount) == 0) {
+                    swap2 = p3;
+                    p3 = nullptr;
+                }else {
+                    prev2 = p3;
+                    p3 = p3->next;
+                }
+            }
+            if (prev1 == nullptr){                          //swap them (this is inefficient rn and incomplete)
+                SongNode *temp;
+                songs = swap2;
+                prev2->next = swap1;
+                temp->next = swap1->next;
+                swap1->next = swap2->next;
+                swap2->next = temp->next;
+            }else if (prev2 == nullptr){
+                SongNode *temp;
+                songs = swap1;
+                prev1->next = swap2;
+                temp->next = swap1->next;
+                swap1->next = swap2->next;
+                swap2->next = temp->next;
+            }else if()
+
+        }
+
+
+    }
+
+
+}
 void UtPod::showSongList(){
     SongNode *p1 = songs;
     while(p1 != NULL){
