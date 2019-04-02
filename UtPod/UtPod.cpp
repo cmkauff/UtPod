@@ -20,23 +20,31 @@ UtPod::UtPod(int size) {
         size = MAX_MEMORY;
     }
     else if(size< 0) {
-        size = 0;
+        size = SUCCESS;
     }
     else {
         podMemSize = size;
     }
 }
-
+int UtPod::numSongs(){
+    SongNode *p1 = songs;
+    int nodeCount = 0;
+    while (p1 != NULL) {
+        p1 = p1->next;
+        nodeCount++;
+    }
+    return nodeCount;
+}
 int UtPod::addSong(Song const &s){
-    if(s.getSize() > getRemainingMemory() ){
-        return -1;
+    if(s.getTitle() == "" || s.getArtist() == "" || s.getSize() == 0 || s.getSize() > getRemainingMemory() ){
+        return NO_MEMORY;
     }
     else {
         SongNode *temp = new SongNode;
         temp->s = s;
         temp->next = songs;
         songs = temp;
-        return 0;
+        return SUCCESS;
     }
 }
 
@@ -54,31 +62,28 @@ int UtPod::removeSong(Song const &s){
               previousSong->next = p1->next;
               delete(p1);
           }
-          return 0;
+          return SUCCESS;
         }
         previousSong = p1;
         p1 = p1->next;
     }
-    return -1;
+    return NO_MEMORY;
 }
 
 void UtPod::shuffle(){
     if (songs != NULL) {
-        SongNode *p1 = songs;                               //count number of nodes
-        int nodeCount = 0;
-        while (p1 != NULL) {
-            p1 = p1->next;
-            nodeCount++;
-        }
         srand((unsigned int) time(NULL));
-        p1 = songs;
+        SongNode *p1 = songs;                               //count number of nodes
         SongNode *p2;
+
         while (p1 != NULL) {
             p2 = songs;
-            for(int i = 0;i<(rand()%nodeCount); i++){
+            for(int i = 0;i<(rand() % numSongs()); i++){
                 p2 = p2->next;
             }
-            p1->s.swap(p2->s);
+            if(p1 != p2) {
+                p1->s.swap(p2->s);
+            }
             p1 = p1->next;
         }
     }
@@ -86,7 +91,7 @@ void UtPod::shuffle(){
 
 void UtPod::showSongList(){
     SongNode *p1 = songs;
-    while(p1 != nullptr){
+    while(p1 != NULL){
         cout << p1->s.getTitle() << ", " << p1->s.getArtist() << ", " << p1->s.getSize() << endl;
         p1 = p1->next;
     }

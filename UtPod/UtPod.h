@@ -25,6 +25,7 @@ private:
 
     int podMemSize;  //the total amount of memory available on the UtPod
 
+    int numSongs();
 public:
     //Default constructor
     //set the memory size to MAX_MEMORY

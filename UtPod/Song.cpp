@@ -62,10 +62,7 @@ bool Song::operator >(Song const &rhs){
             return true;
         }
     }
-    else{
-        return false;
-    }
-
+    return false;
 }
 
 bool Song::operator <(Song const &rhs){
@@ -80,10 +77,7 @@ bool Song::operator <(Song const &rhs){
             return true;
         }
     }
-    else{
-        return false;
-    }
-
+    return false;
 }
 
 bool Song::operator ==(Song const &rhs){

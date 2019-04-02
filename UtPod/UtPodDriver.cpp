@@ -8,26 +8,49 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     UtPod t;
+    UtPod t2(100);
+    cout << "UtPod t called with default constructor size = 512mb" << endl;
+    cout << "UtPod t2 called with non-default constructor size = 100mb" << endl;
 
-    Song s1("Aeatles", "Hey Jude1", 4);
+    Song s1("Edith Piaf", "La Vi En Rose", 22);
     int result = t.addSong(s1);
-    cout << "result = " << result << endl;
+    cout << "adding song result = " << result << endl;
 
- //   t.showSongList();
+    t.showSongList();
 
-    Song s2("Beatles", "Hey Jude2", 5);
+    Song s2("Pixies", "Hey", 16);
     result = t.addSong(s2);
-    cout << "result = " << result << endl;
+    cout << "adding song result = " << result << endl;
 
-//    t.showSongList();
+    t.showSongList();
 
-    Song s3("Ceatles", "Hey Jude3", 6);
+    Song s3("Chvrches", "Mother We Share", 18);
     result = t.addSong(s3);
-    cout << "result = " << result << endl;
+    cout << "adding song result = " << result << endl;
 
-    Song s4("Deatles", "Hey Jude4", 7);
+    t.showSongList();
+    cout << "removing Mother We Share result = " << result << endl;
+    t.removeSong(s3);
+    t.showSongList();
+
+    Song s4("Pixies", "Hey", 16);
     result = t.addSong(s4);
-    cout << "result = " << result << endl;
+    cout << "adding song result = " << result << endl;
+
+    Song s8("Pixies", "Hey", 20);
+    result = t.addSong(s8);
+    cout << "adding song result = " << result << endl;
+
+    t.showSongList();
+    t.shuffle();
+    t.showSongList();
+    cout << endl << "Shuffling" << endl << endl;
+    t.shuffle();
+    t.showSongList();
+
+    cout << endl << "Sorting" << endl << endl;
+    t.sortSongList();
+    t.showSongList();
 
     Song s5("Eeatles", "Hey Jude5", 241);
     result = t.addSong(s5);
@@ -40,8 +63,6 @@ int main(int argc, char *argv[]) {
     Song s7("Geatles", "Hey Jude5", 8);
     result = t.addSong(s7);
     cout << "add result = " << result << endl;
-    t.showSongList();
-    cout << "-----------" << endl;
 /*
     result = t.removeSong(s2);
     cout << "delete result = " << result << endl;
@@ -69,13 +90,5 @@ int main(int argc, char *argv[]) {
     t.showSongList();
     cout << "memory = " << t.getRemainingMemory() << endl;
 */
-    if(s1>s2){
-        cout << "works" << endl;
-    }
-    t.shuffle();
-    t.showSongList();
-    cout << "-----------" << endl;
-    t.sortSongList();
-    t.showSongList();
 
 }
