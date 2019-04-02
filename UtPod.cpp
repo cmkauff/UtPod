@@ -92,7 +92,7 @@ void UtPod::shuffle(){
 void UtPod::showSongList(){
     SongNode *p1 = songs;
     while(p1 != NULL){
-        cout << p1->s.getArtist() << ", " << p1->s.getTitle() << ", " << p1->s.getSize() << endl;
+        cout << p1->s.getTitle() << ", " << p1->s.getArtist() << ", " << p1->s.getSize() << endl;
         p1 = p1->next;
     }
 }
