@@ -58,7 +58,7 @@ bool Song::operator >(Song const &rhs){
         if(title < rhs.title) {
             return true;
         }
-        if ((title == rhs.title) && (size > rhs.size)){
+        if ((title == rhs.title) && (size < rhs.size)){
             return true;
         }
     }
@@ -73,7 +73,7 @@ bool Song::operator <(Song const &rhs){
         if(title > rhs.title) {
             return true;
         }
-        if ((title == rhs.title) && (size < rhs.size)){
+        if ((title == rhs.title) && (size > rhs.size)){
             return true;
         }
     }
