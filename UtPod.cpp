@@ -17,10 +17,10 @@ UtPod::UtPod() {
 UtPod::UtPod(int size) {
     songs = NULL;
     if(size > MAX_MEMORY){
-        size = MAX_MEMORY;
+        podMemSize = MAX_MEMORY;
     }
     else if(size < 0) {
-        size = SUCCESS;
+	podMemSize = SUCCESS;
     }
     else {
         podMemSize = size;
