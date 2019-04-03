@@ -13,6 +13,7 @@ using namespace std;
 class Song {
 
 private:
+    
     string artist;
     string title;
     int size;
