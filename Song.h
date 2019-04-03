@@ -24,7 +24,7 @@ public:
     Song();
 
     //Constructor with artist, title, and size parameters
-    //The user of the class will pass in an artist, title and size.
+    // in an artist, title and size.
     Song(string artist, string title, int size);
 
     /* FUNCTION - string getArtist
