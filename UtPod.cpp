@@ -19,7 +19,7 @@ UtPod::UtPod(int size) {
     if(size > MAX_MEMORY){
         size = MAX_MEMORY;
     }
-    else if(size< 0) {
+    else if(size < 0) {
         size = SUCCESS;
     }
     else {
@@ -92,6 +92,7 @@ void UtPod::shuffle(){
 void UtPod::showSongList(){
     SongNode *p1 = songs;
     while(p1 != NULL){
+
         cout << p1->s.getTitle() << ", " << p1->s.getArtist() << ", " << p1->s.getSize() << endl;
         p1 = p1->next;
     }

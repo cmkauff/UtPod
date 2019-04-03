@@ -8,21 +8,22 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
     UtPod t;
-    UtPod t2(100);
     cout << "UtPod t called with default constructor size = 512mb" << endl;
+    UtPod t2(100);
     cout << "UtPod t2 called with non-default constructor size = 100mb" << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
-    cout << endl << "Shuffling" << endl << endl;
+    cout << endl << "Shuffling t" << endl << endl;
     t.shuffle();
 
     Song s1("Edith Piaf", "La Vie En Rose", 22);
+    s1.setArtist("E. Piaf");
     int result = t.addSong(s1);
     cout << "adding song result = " << result << endl << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     Song s2("Pixies", "Hey", 16);
@@ -46,10 +47,12 @@ int main(int argc, char *argv[]) {
     cout << "adding song result = " << result << endl;
 
     Song s7("Eagles", "Hotel California", 60);
+    s7.setSize(50);
     result = t.addSong(s7);
     cout << "add result = " << result << endl;
 
     Song s8("Aerosmith", "Toys in the Attic", 26);
+    s8.setTitle("Life in the Fast Lane");
     result = t.addSong(s8);
     cout << "add result = " << result << endl;
 
@@ -61,59 +64,63 @@ int main(int argc, char *argv[]) {
     result = t.addSong(s10);
     cout << endl << "adding a default song: add result = " << result << endl << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
-    cout << endl << "Shuffling" << endl << endl;
+    cout << endl << "Shuffling t" << endl << endl;
     t.shuffle();
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
-    cout << endl << "Shuffling" << endl << endl;
+    cout << endl << "Shuffling t" << endl << endl;
     t.shuffle();
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
-    cout << endl << "Sorting" << endl << endl;
+    cout << endl << "Sorting t" << endl << endl;
     t.sortSongList();
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     result = t.removeSong(s2);
     cout << endl << "delete result = " << result << endl << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     result = t.removeSong(s2);
     cout << endl << "delete result = " << result << endl << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     cout << endl << "Adding a song that exceeds memory to UtPod t2" << endl;
     result = t2.addSong(s9);
     cout << "add result = " << result << endl;
 
-    t.clearMemory();
-    cout << endl << "Clearing Memory" << endl << endl;
+    cout << endl << "Adding a song that does not exceed memory to UtPod t2" << endl;
+    result = t2.addSong(s8);
+    cout << "add result = " << result << endl;
 
-    cout << "Showing Song List:" << endl;
+    t.clearMemory();
+    cout << endl << "Clearing Memory of t" << endl << endl;
+
+    cout << "Showing Song List for t:" << endl;
     t.showSongList();
 
 
     result = t.addSong(s1);
     cout << endl << "adding song result = " << result << endl;
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     result = t.removeSong(s9);
     cout << endl << "Removing a song that is not in the UtPod Linked List: result is " << result << endl << endl;
 
-    cout << "Showing Song List:" << endl;
+    cout << "Showing Song List t:" << endl;
     t.showSongList();
 
     t.~UtPod();

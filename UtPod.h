@@ -44,9 +44,9 @@ public:
 
      precondition: s is a valid Song
 
-     input parms -
+     input params - song to add
 
-     output parms -
+     output params - error condition
     */
 
     int addSong(Song const &s);
@@ -59,9 +59,9 @@ public:
          o returns -1 if nothing is removed
 
 
-       input parms -
+       input params - song to remove
 
-       output parms -
+       output params - error condition
     */
 
     int removeSong(Song const &s);
@@ -71,9 +71,9 @@ public:
      *  shuffles the songs into random order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - none
     */
 
     void shuffle();
@@ -83,9 +83,9 @@ public:
      * prints the current list of songs in order from first to last to standard output
      * format - Title, Artist, size in MB (one song per line)
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - none
     */
 
 
@@ -96,9 +96,9 @@ public:
      *  sorts the songs in ascending order
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - none
     */
 
     void sortSongList();
@@ -107,9 +107,9 @@ public:
     /* FUNCTION - void clearMemory
      * clears all the songs from memory
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - none
     */
     void clearMemory();
 
@@ -118,9 +118,9 @@ public:
      *  returns the total amount of memory in the UtPod
         o will do nothing if there are less than two songs in the current list
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - integer of memory size
     */
 
     int getTotalMemory() {
@@ -132,9 +132,9 @@ public:
     /* FUNCTION - int getRemainingMemory
      *  returns the amount of memory available for adding new songs
 
-       input parms -
+       input params - none
 
-       output parms -
+       output params - integer of remaining memory size
     */
 
     int getRemainingMemory();
